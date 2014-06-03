@@ -1,11 +1,18 @@
 {
   "name": "ember-pikaday",
-  "version": "0.1.0",
-  "author": {
-    "name": "Joel Kuntz & Glavin Wiechert",
-    "email": "joel.kuntz.92@gmail.com, glavin@streamlyne.co",
-    "url": "https://github.com/Frozenfire92/ember-pikaday"
-  },
+  "version": "0.1.1",
+  "authors": [
+      {
+        "name": "Joel Kuntz",
+        "email": "joel.kuntz.92@gmail.com",
+        "url": "https://github.com/Frozenfire92"
+      },
+      {
+        "name": "Glavin Wiechert",
+        "email": "glavin@streamlyne.co",
+        "url": "https://github.com/Glavin001"
+      },
+  ],
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
