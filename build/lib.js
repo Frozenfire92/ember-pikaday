@@ -1,16 +1,16 @@
 (function() {
 
-Ember.emberPikaday = Ember.Namespace.create();
-Ember.emberPikaday.VERSION = '0.1.0';
+Ember.Pikaday = Ember.Namespace.create();
+Ember.Pikaday.VERSION = '0.1.2';
 
-Ember.libraries.register('ember-pikaday', Ember.emberPikaday.VERSION);
+Ember.libraries.register('Ember Pikaday', Ember.Pikaday.VERSION);
 
 
 })();
 
 (function() {
 
-Ember.emberPikaday.PikadayComponent = Ember.Component.extend({
+Ember.Pikaday.PikadayComponent = Ember.Component.extend({
 
     /**
     HTML tag of this component's element.
@@ -125,7 +125,7 @@ Ember.emberPikaday.PikadayComponent = Ember.Component.extend({
 
 });
 
-Ember.Handlebars.helper('pik-a-day', Ember.emberPikaday.PikadayComponent);
+Ember.Handlebars.helper('pik-a-day', Ember.Pikaday.PikadayComponent);
 
 
 })();

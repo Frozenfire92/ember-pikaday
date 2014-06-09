@@ -9,14 +9,15 @@
 
     <div>
         Choose a date
-        {{pik-a-day date=dat}}
+        {{pik-a-day date=dat value=stringDate}}
 
         <br /><br />
         Watch it update<br>
-        {{dat}}
+        <strong>dat:</strong> {{dat}}<br>
+        <strong>stringDate:</strong> {{stringDate}}
 
         <pre>
-    Usage: \{{pik-a-day date=dat}}
+    Usage: \{{pik-a-day date=dat value=stringDate}}
         </pre>
     </div>
 

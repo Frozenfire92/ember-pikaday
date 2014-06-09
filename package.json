@@ -1,6 +1,6 @@
 {
   "name": "ember-pikaday",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "authors": [
       {
         "name": "Joel Kuntz",
@@ -11,7 +11,7 @@
         "name": "Glavin Wiechert",
         "email": "glavin@streamlyne.co",
         "url": "https://github.com/Glavin001"
-      },
+      }
   ],
   "dependencies": {},
   "devDependencies": {
