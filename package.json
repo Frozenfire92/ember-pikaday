@@ -13,6 +13,7 @@
         "url": "https://github.com/Glavin001"
       }
   ],
+  "repository": "https://github.com/Frozenfire92/ember-pikaday",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",

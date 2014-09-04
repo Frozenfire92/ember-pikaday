@@ -1,7 +1,7 @@
 (function() {
 
 Ember.Pikaday = Ember.Namespace.create();
-Ember.Pikaday.VERSION = '0.1.2';
+Ember.Pikaday.VERSION = '0.1.5';
 
 Ember.libraries.register('Ember Pikaday', Ember.Pikaday.VERSION);
 
@@ -48,12 +48,21 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
     value: '',
 
     /**
+    Boolean used for setting utc mode
+    */
+    utc: false,
+
+    /**
     Date field is updated. Triggers sync with Pikaday picker.
     */
     dateDidChange: function() {
         var self = this;
         // Get date & format
-        var date = moment(self.get('date'));
+        if (self.get('utc')) { // If UTC mode enabled use moment's parser
+            date = moment.utc(self.get('date'));
+        } else {
+            date = moment(self.get('date'));
+        }
         var format = self.get('format');
         // Validate date
         if (date.isValid()) {
@@ -77,10 +86,8 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
         var date = moment(this.get('value'));
         if (date.isValid()) {
             this.set('date', date.toDate());
-        } else {
-            // Value is invalid. Wait for it to validate.
-            console.log('date is invalid');
         }
+        // else: Value is invalid. Wait for it to validate.
     }.observes('value'),
 
 
@@ -92,7 +99,6 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
         // Setup bindings to input field
         var $el = self.$();
         $el.keyup(function(event) {
-            console.log(event);
             var val = $el.val();
             self.set('value', val);
         });
@@ -102,7 +108,6 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
             field: $el[0],
             format: format,
             onSelect: function(date) {
-                console.log(date);
                 self.set('date', date);
             }
         });
