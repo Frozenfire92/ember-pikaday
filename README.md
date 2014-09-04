@@ -35,6 +35,12 @@ or
 {{pik-a-day value=yourStringProperty}}
 ```
 
+You can use moment's utc parser aswell
+
+```handlebars
+{{pik-a-day date=yourDateProperty utc=true}}
+```
+
 
 ## Developing
 
