@@ -16,7 +16,14 @@
 bower install --save ember-pikaday
 ```
 
-2) Add library references to Brocfile.js
+2) Add library references to index.html or Brocfile.js
+
+```html
+<link rel="stylesheet" href="bower_components/pikaday/css/pikaday.css">
+
+<script src="bower_components/pikaday/pikaday.js"></script>
+<script src="bower_components/ember-pikaday/build/lib.js"></script>
+```
 
 ```javascript
 app.import('bower_components/pikaday/css/pikaday.css');
