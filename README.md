@@ -16,13 +16,12 @@
 bower install --save ember-pikaday
 ```
 
-2) Add library references to your index.html
+2) Add library references to Brocfile.js
 
-```html
-<link rel="stylesheet" href="bower_components/pikaday/css/pikaday.css">
-
-<script src="bower_components/pikaday/pikaday.js"></script>
-<script src="bower_components/ember-pikaday/build/lib.js"></script>
+```javascript
+app.import('bower_components/pikaday/css/pikaday.css');
+app.import('bower_components/pikaday/pikaday.js');
+app.import('bower_components/ember-pikaday/build/lib.js');
 ```
 
 3) Use in your project
@@ -33,6 +32,8 @@ This will bind `your(Date/String)Property` to the date picker
 {{pik-a-day date=yourDateProperty}}
 or
 {{pik-a-day value=yourStringProperty}}
+or with a custom class (like bootstrap input)
+{{pik-a-day value=yourStringProperty class="form-control"}}
 ```
 
 You can use moment's utc parser aswell
