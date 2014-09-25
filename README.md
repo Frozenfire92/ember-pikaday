@@ -32,8 +32,6 @@ This will bind `your(Date/String)Property` to the date picker
 {{pik-a-day date=yourDateProperty}}
 or
 {{pik-a-day value=yourStringProperty}}
-or with a custom class (like bootstrap input)
-{{pik-a-day value=yourStringProperty class="form-control"}}
 ```
 
 You can use moment's utc parser aswell
@@ -42,6 +40,10 @@ You can use moment's utc parser aswell
 {{pik-a-day date=yourDateProperty utc=true}}
 ```
 
+You can use a custom class (like bootstrap input)
+```handlebars
+{{pik-a-day value=yourStringProperty class="form-control"}}
+```
 
 ## Developing
 
