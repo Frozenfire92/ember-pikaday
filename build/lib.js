@@ -20,12 +20,17 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
     /**
     Two-way bindings to element's attributes.
     */
-    attributeBindings: ['type', 'value'],
+    attributeBindings: ['type', 'placeholder', 'date', 'value'],
 
     /**
     Input type
     */
     type: 'text',
+
+    /**
+    Placeholder
+    */
+    placeholder: null,
 
     /**
     Pickaday object
