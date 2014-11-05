@@ -91,6 +91,8 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
         var date = moment(this.get('value'));
         if (date.isValid()) {
             this.set('date', date.toDate());
+        } else if (this.get('value').trim() === '') {
+            this.set('date', null);
         }
         // else: Value is invalid. Wait for it to validate.
     }.observes('value'),
