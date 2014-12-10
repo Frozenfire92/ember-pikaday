@@ -59,6 +59,16 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
     utc: false,
 
     /**
+    Date variable used for minimum date
+    */
+    minDate: null,
+
+    /**
+    Date variable used for minimum date
+    */
+    maxDate: null,
+
+    /**
     Options object for passing other configuration parameters
     */
     options: {},
@@ -103,6 +113,33 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
         // else: Value is invalid. Wait for it to validate.
     }.observes('value'),
 
+    /**
+    The value of the minimum date has changed. syncs with Pikaday
+    */
+    minDateDidChange: function() {
+        var date = moment(this.get('minDate'));
+        if(date.isValid()) {
+            this.get('picker').setMinDate(date);
+
+            if(this.get('date') < date) {
+                this.set('date', date);
+            }
+        }
+    }.observes('minDate'),
+
+    /**
+    The value of the minimum date has changed. syncs with Pikaday
+    */
+    maxDateDidChange: function() {
+        var date = moment(this.get('maxDate'));
+        if(date.isValid()) {
+            this.get('picker').setMaxDate(date);
+
+            if(this.get('date') > date) {
+                this.set('date', date);
+            }
+        }
+    }.observes('maxDate'),
 
     /**
     Inserts the input element into the DOM
