@@ -6,6 +6,7 @@
 #### Authors:
 - [Joel Kuntz](https://github.com/Frozenfire92)
 - [Glavin Wiechert](https://github.com/Glavin001)
+- [Awesome Contributors](https://github.com/Frozenfire92/ember-pikaday/graphs/contributors)
 
 
 ## Usage
