@@ -9,7 +9,7 @@
 
     <div>
         Choose a date
-        {{pik-a-day date=dat value=stringDate}}
+        {{pik-a-day date=dat value=stringDate options=pikadayOptions}}
 
         <br /><br />
         Watch it update<br>
@@ -19,6 +19,11 @@
         <pre>
     Usage: \{{pik-a-day date=dat value=stringDate}}
         </pre>
+    </div>
+
+    <div>
+        Choose a date, constraint by today &amp; being later than the first date
+        {{pik-a-day date=dat2 value=stringDate2 minDate=dat}}
     </div>
 
 </div>

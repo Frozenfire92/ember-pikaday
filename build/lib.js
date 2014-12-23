@@ -1,10 +1,11 @@
 (function() {
 
+
+
 Ember.Pikaday = Ember.Namespace.create();
 Ember.Pikaday.VERSION = '0.1.7';
 
 Ember.libraries.register('Ember Pikaday', Ember.Pikaday.VERSION);
-
 
 })();
 
@@ -58,6 +59,21 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
     utc: false,
 
     /**
+    Date variable used for minimum date
+    */
+    minDate: null,
+
+    /**
+    Date variable used for minimum date
+    */
+    maxDate: null,
+
+    /**
+    Options object for passing other configuration parameters
+    */
+    options: {},
+
+    /**
     Date field is updated. Triggers sync with Pikaday picker.
     */
     dateDidChange: function() {
@@ -97,6 +113,33 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
         // else: Value is invalid. Wait for it to validate.
     }.observes('value'),
 
+    /**
+    The value of the minimum date has changed. syncs with Pikaday
+    */
+    minDateDidChange: function() {
+        var date = moment(this.get('minDate'));
+        if(date.isValid()) {
+            this.get('picker').setMinDate(date);
+
+            if(this.get('date') < date) {
+                this.set('date', date);
+            }
+        }
+    }.observes('minDate'),
+
+    /**
+    The value of the minimum date has changed. syncs with Pikaday
+    */
+    maxDateDidChange: function() {
+        var date = moment(this.get('maxDate'));
+        if(date.isValid()) {
+            this.get('picker').setMaxDate(date);
+
+            if(this.get('date') > date) {
+                this.set('date', date);
+            }
+        }
+    }.observes('maxDate'),
 
     /**
     Inserts the input element into the DOM
@@ -109,15 +152,17 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
             var val = $el.val();
             self.set('value', val);
         });
-        // Init Pikaday
         var format = self.get('format');
-        var picker = new Pikaday({
+        // Merge options
+        var options = $.extend({}, this.get('options'), {
             field: $el[0],
             format: format,
             onSelect: function(date) {
                 self.set('date', date);
             }
         });
+        // Init Pikaday
+        var picker = new Pikaday(options);
         // Remember the picker
         self.set('picker', picker);
         // Trigger update
@@ -138,6 +183,13 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
 });
 
 Ember.Handlebars.helper('pik-a-day', Ember.Pikaday.PikadayComponent);
+
+
+})();
+
+(function() {
+
+
 
 
 })();
