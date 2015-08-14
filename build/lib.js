@@ -20,7 +20,7 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
     /**
     Two-way bindings to element's attributes.
     */
-    attributeBindings: ['type', 'placeholder', 'date', 'value'],
+    attributeBindings: ['type', 'placeholder', 'date', 'value', 'readonly'],
 
     /**
     Input type
@@ -31,6 +31,11 @@ Ember.Pikaday.PikadayComponent = Ember.Component.extend({
     Placeholder
     */
     placeholder: null,
+
+    /**
+    Readonly attribute, to make text non-selectable.
+    */
+    readonly: null,
 
     /**
     Pickaday object
